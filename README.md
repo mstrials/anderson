@@ -172,6 +172,79 @@ All money values must:
 - `240` → `$240.00`  
 - `2880` → `$2,880.00`  
 
+# Navigation Bar + Cart
+
+## Requirement
+
+Implement a **global navigation bar** that is visible across the app.
+
+The navigation bar must include:
+
+- Logo / site name (static)
+- Link to Membership Plans page
+- Cart icon / Cart section
+
+---
+
+## Cart behavior
+
+The cart represents the **currently selected membership plan**.
+
+When a user selects a membership and clicks **“Purchase Membership”**:
+
+- The selected plan must be added to the cart
+- The cart must display:
+  - Selected plan name
+  - Selected billing type (Monthly / Annual)
+  - Final price
+
+The cart does **not** need to support multiple items — it can be treated as a **single-item cart**.
+
+---
+
+## State management
+
+Cart state must persist across pages.
+
+You may use:
+
+- React Context (recommended if unsure)
+- Zustand / Redux / Jotai
+- Or URL params (if cleanly implemented)
+
+The same state should be used for:
+- Carousel selection
+- Cart display
+- Checkout page
+
+---
+
+## UI requirements
+
+- Cart should be visible in the navbar at all times
+- Cart should clearly show the current price
+- If no membership is selected:
+  - Cart should show an empty state (e.g. “No plan selected”)
+
+---
+
+## Navigation behavior
+
+- Clicking the cart (or checkout button in navbar) should navigate to `/checkout`
+- The checkout page must reflect the same data shown in the cart
+
+---
+
+## Acceptance Checklist — Navbar & Cart
+
+- [ ] Navbar exists on all pages
+- [ ] Cart displays selected membership
+- [ ] Cart displays correct price
+- [ ] Cart persists across page navigation
+- [ ] Clicking cart navigates to `/checkout`
+- [ ] Cart state matches checkout state
+
+
 ---
 
 # Part B — Checkout Page (`/checkout`)
