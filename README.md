@@ -20,7 +20,9 @@ This task is focused on:
 
 ## Provided data (single source of truth)
 
-Use this array to render plan names and prices. This must be the only source of pricing data. It has been provided in /data/products.ts
+Use this array to render plan names and prices. This must be the only source of pricing data. 
+
+> It has been provided in /data/products.ts
 
 ```ts
 interface Product {
