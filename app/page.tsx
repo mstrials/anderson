@@ -1,13 +1,19 @@
 import React from 'react'
+import MembershipPlansCarousel from '../components/MembershipPlansCarousel'
+import ContactFormSection from '../components/ContactFormSection'
+import { products } from '../data/products'
 
-const Home = () => {
+const PlansPage = () => {
   return (
-    <div className='flex flex-col items-center justify-center h-screen gap-4'>
-      <h1 className='text-4xl font-bold'>Welcome to the Anderson Trial Task</h1>
-      <p className='text-lg italic mt-6'>All instructions can be found in the README.md file</p>
-      <p className='text-lg italic'>All assets have been provided in the public folder</p>
+    <div className="min-h-screen bg-white py-12">
+      <div className="container mx-auto px-4">
+        {/* <h1 className="text-4xl font-bold text-center text-gray-800 mb-12">
+          Membership Plans
+        </h1> */}
+        <MembershipPlansCarousel products={products} />
+      </div>
     </div>
   )
 }
 
-export default Home
+export default PlansPage

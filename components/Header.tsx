@@ -2,6 +2,8 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
+import { ShoppingCart } from '@phosphor-icons/react';
 import { useCart } from '../contexts/CartContext';
 
 const formatCurrency = (amount: number): string => {
@@ -14,18 +16,23 @@ const formatCurrency = (amount: number): string => {
 };
 
 const Header: React.FC = () => {
-  const { getTotalPrice } = useCart();
-  const totalPrice = getTotalPrice();
+  const { cartItems } = useCart();
+  
+  // Get the base price from cart (only one item allowed)
+  const cartPrice = cartItems.length > 0 ? cartItems[0].monthlyPrice : 0;
+  const displayPrice = cartPrice > 0 ? formatCurrency(cartPrice) : '$0.00';
 
   return (
     <header className="bg-[#002a25] text-white px-6 py-4">
       <div className="container mx-auto flex items-center justify-between">
         {/* Logo on the left */}
         <Link href="/" className="flex items-center">
-          <img 
+          <Image 
             src="/logo/logo.png" 
             alt="Logo" 
-            className="h-10 w-auto"
+            className="h-auto w-32"
+            width={100}
+            height={100}
           />
         </Link>
 
@@ -42,24 +49,8 @@ const Header: React.FC = () => {
         {/* Cart button on the right */}
         <div className="flex items-center gap-2">
           <button className="flex items-center gap-2 text-white hover:text-gray-200 transition-colors">
-            <svg 
-              className="w-6 h-6" 
-              fill="none" 
-              stroke="currentColor" 
-              viewBox="0 0 24 24"
-            >
-              <path 
-                strokeLinecap="round" 
-                strokeLinejoin="round" 
-                strokeWidth={2} 
-                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" 
-              />
-            </svg>
-            {totalPrice > 0 && (
-              <span className="font-semibold">
-                {formatCurrency(totalPrice)}
-              </span>
-            )}
+            <ShoppingCart size={24} color="white" weight="bold" />
+            <span className="font-semibold">{displayPrice}</span>
           </button>
         </div>
       </div>

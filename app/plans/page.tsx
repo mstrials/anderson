@@ -11,7 +11,6 @@ const PlansPage = () => {
           Membership Plans
         </h1> */}
         <MembershipPlansCarousel products={products} />
-        <ContactFormSection />
       </div>
     </div>
   )

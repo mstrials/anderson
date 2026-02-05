@@ -38,8 +38,9 @@ const PlanSlide: React.FC<PlanSlideProps> = ({ product, onPrevSlide, onNextSlide
       productId: product.id,
       productName: product.name,
       monthlyPrice: product.monthlyPrice,
+      billingType: selectedPaymentOption,
     });
-    router.push('/checkout');
+    router.push('/cart');
   };
 
   const features = [

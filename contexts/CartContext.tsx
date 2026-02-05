@@ -6,6 +6,7 @@ interface CartItem {
   productId: number;
   productName: string;
   monthlyPrice: number;
+  billingType: 'monthly' | 'annual';
 }
 
 interface CartContextType {
@@ -21,16 +22,8 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
 
   const addToCart = (item: CartItem) => {
-    setCartItems((prevItems) => {
-      // Check if item already exists, if so replace it (only one membership at a time)
-      const existingIndex = prevItems.findIndex((i) => i.productId === item.productId);
-      if (existingIndex >= 0) {
-        const newItems = [...prevItems];
-        newItems[existingIndex] = item;
-        return newItems;
-      }
-      return [...prevItems, item];
-    });
+    // Only one membership allowed at a time - always replace old with new
+    setCartItems([item]);
   };
 
   const clearCart = () => {
