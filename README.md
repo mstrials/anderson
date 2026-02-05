@@ -189,17 +189,13 @@ All money values must:
 
 ---
 
-# Navigation Bar + Cart
+# Cart button in Navigation
 
 ## Requirement
 
-Implement a **global navigation bar** that is visible across the app.
+A global navigation bar has been created for you in the template file. Add the functionality to this button to update with the Monthly Price for the product the user selects when they click the "Purchase Memebership" button at the bottom of the page.
 
-The navigation bar must include:
-
-- Logo / site name (static)  
-- Link to Membership Plans page  
-- Cart icon / Cart section  
+Follow the Cart Behaviour instructions below
 
 ---
 
@@ -240,7 +236,7 @@ The same state should be used for:
 ## UI requirements
 
 - Cart should be visible in the navbar at all times  
-- Cart should clearly show the current price  
+- Cart should clearly show the current Monthly Price  
 - If no membership is selected:
   - Cart should show an empty state (e.g. “No plan selected”)
 
@@ -253,9 +249,8 @@ The same state should be used for:
 
 ---
 
-## Acceptance Checklist — Navbar & Cart
+## Acceptance Checklist — Navbar Cart Button
 
-- [ ] Navbar exists on all pages  
 - [ ] Cart displays selected membership  
 - [ ] Cart displays correct price  
 - [ ] Cart persists across page navigation  
@@ -266,15 +261,11 @@ The same state should be used for:
 
 # Part B — Cart Page (`/cart`)
 
-This page should visually resemble the provided **Cart Screen** screenshot.
-
 This page represents a **pre-checkout cart summary** where the user reviews their membership before proceeding to the full checkout.
 
 ---
 
 ## Requirement
-
-Create a route at **`/cart`** that displays the selected membership and pricing summary.
 
 This page acts as a **cart review step only** (no payment processing here).
 
@@ -286,7 +277,7 @@ The selected membership and billing option must be available on this page via st
 
 ### Section 1 — Membership Summary
 
-Display:
+Ensure the Cart page displays the following product values from the user's selected product via state (values required will be indicated in the comments on the page which you will be required to map correctly and display via state):
 
 - Selected plan name  
 - Selected billing type (Monthly / Annual)  
@@ -298,15 +289,7 @@ This data must come from the same state as the carousel selection.
 
 ---
 
-### Section 2 — Coupon Code
-
-- Input field for coupon code
-- “Apply” button
-- No real discount logic required (UI only is fine)
-
----
-
-### Section 3 — Terms & Conditions
+### Section 2 — Terms & Conditions
 
 - Checkbox:  
   “I have read and agree to the Terms & Conditions of this membership.”
@@ -314,7 +297,7 @@ This data must come from the same state as the carousel selection.
 
 ---
 
-### Section 4 — Proceed to Checkout
+### Section 3 — Proceed to Checkout
 
 - Button: **“Proceed to Checkout”**
 - Navigates to `/checkout`
@@ -323,10 +306,8 @@ This data must come from the same state as the carousel selection.
 
 ## Acceptance Checklist — Cart Page
 
-- [ ] `/cart` route exists  
 - [ ] Displays selected membership  
 - [ ] Shows correct pricing + GST  
-- [ ] Coupon input exists  
 - [ ] Terms checkbox required to continue  
 - [ ] Button navigates to `/checkout`  
 - [ ] No Stripe logic on this page  
@@ -334,8 +315,6 @@ This data must come from the same state as the carousel selection.
 ---
 
 # Part C — Checkout Page (`/checkout`)
-
-This page should visually resemble the provided **Checkout Screen** screenshot.
 
 This is the **final payment step**.
 
@@ -357,15 +336,7 @@ This page performs the **actual Stripe payment**.
 
 ### Section 1 — Customer Details Form (Left side)
 
-Form fields (based on screenshot):
-
-- Company name  
-- First name  
-- Last name  
-- Email  
-- Mobile number  
-- Business address  
-- Country  
+All required form fields have been created for you.
 
 All fields must be **controlled inputs**.
 
@@ -377,7 +348,7 @@ Basic validation required:
 
 ### Section 2 — Membership Summary (Right side)
 
-Display:
+Ensure the Checkout page displays the following product values from the user's selected product via state (Values required will be indicated in the comments on the page which you will be required to map correctly and display via state):
 
 - Selected plan name  
 - Selected billing type (Monthly / Annual)  
@@ -497,7 +468,6 @@ State management is up to you:
 
 # Acceptance Checklist — Checkout
 
-- [ ] `/checkout` route exists  
 - [ ] Customer form exists and validates  
 - [ ] Membership summary matches cart  
 - [ ] Stripe Elements used for card input  
@@ -525,14 +495,11 @@ State management is up to you:
 
 ## Cart Page (`/cart`)
 
-- [ ] `/cart` route exists  
 - [ ] Selected plan persists from plans page  
 - [ ] Displays selected plan name and billing type  
 - [ ] Base price (ex GST) displayed correctly  
 - [ ] GST (10%) calculated correctly  
 - [ ] Final total to pay today is correct  
-- [ ] Coupon input field exists  
-- [ ] Terms & Conditions checkbox exists  
 - [ ] Proceed button disabled until Terms are accepted  
 - [ ] Clicking “Proceed to Checkout” navigates to `/checkout`  
 
@@ -540,7 +507,6 @@ State management is up to you:
 
 ## Checkout Page (`/checkout`)
 
-- [ ] `/checkout` route exists  
 - [ ] Customer details form exists and is controlled  
 - [ ] Required fields are validated  
 - [ ] Membership summary matches cart  
@@ -590,7 +556,8 @@ For each product:
 - Select the membership on the plans page  
 - Proceed through cart and checkout  
 - Complete a Stripe payment using test keys  
-- Reach the success state  
+- Reach the success state
+- Redirect the user to the /plans page after payment is completed
 
 All three products must complete the full flow successfully.
 
