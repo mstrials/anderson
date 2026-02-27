@@ -37,6 +37,13 @@ Stripe keys will be provided separately.
 
 ---
 
+## Icons
+- Import Icons from any icon library of your choice (react.feather or HeroIcons recommended)
+- Plans page must match the 'Part A - Plan Screen.pdf' file in to the 'public' folder of the project.
+- 9 different icons are required on the Plans Page. Match the sizes and colours shown in the PDF as closely as possible.
+
+---
+
 ## Provided data (single source of truth)
 
 Use this array to render plan names and prices. This must be the only source of pricing data.

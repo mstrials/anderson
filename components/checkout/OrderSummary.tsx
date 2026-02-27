@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 
 interface OrderSummaryProps {
   planName: string;
@@ -19,13 +19,6 @@ const OrderSummary: React.FC<OrderSummaryProps> = ({
   total,
   billingType,
 }) => {
-  const [couponCode, setCouponCode] = useState('');
-
-  const handleApplyCoupon = () => {
-    // TODO: Implement coupon application logic
-    console.log('Applying coupon:', couponCode);
-  };
-
   return (
     <div className="flex flex-col h-full">
       {/* Plan Details */}
